@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  invoiceservices.invcmanager:
+    image: invoiceservices.invcmanager
+    build:
+      context: ./InvoiceServices.InvcManager
+      dockerfile: Dockerfile
