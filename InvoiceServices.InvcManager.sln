@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceServices.InvcManager
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2E47B0A4-7B2C-465A-A883-D88C9A276E8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceServices.InvcManager.Core", "InvoiceServices.InvcManager.Core\InvoiceServices.InvcManager.Core.csproj", "{BBD370B7-B785-4B4C-BBF3-3086202DA86E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2E47B0A4-7B2C-465A-A883-D88C9A276E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E47B0A4-7B2C-465A-A883-D88C9A276E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E47B0A4-7B2C-465A-A883-D88C9A276E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD370B7-B785-4B4C-BBF3-3086202DA86E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD370B7-B785-4B4C-BBF3-3086202DA86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD370B7-B785-4B4C-BBF3-3086202DA86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD370B7-B785-4B4C-BBF3-3086202DA86E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
