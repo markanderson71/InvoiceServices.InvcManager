@@ -1,8 +1,11 @@
-version: '3'
+version: '2'
 
 services:
   invoiceservices.invcmanager:
-    image: invoiceservices.invcmanager
+    image: markanderson71/billingservices:invcmanager
     build:
       context: ./InvoiceServices.InvcManager
       dockerfile: Dockerfile
+    ports:
+      - "911:80"
+

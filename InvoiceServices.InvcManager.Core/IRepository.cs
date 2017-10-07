@@ -2,7 +2,8 @@
 
 namespace InvoiceServices.InvcManager.Core
 {
-    public class Class1
+    public interface  IRepository
     {
+        bool IsAvailable();
     }
 }

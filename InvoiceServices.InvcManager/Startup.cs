@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using InvoiceServices.InvcManager.Data;
+using InvoiceServices.InvcManager.Core;
 
 namespace InvoiceServices.InvcManager
 {
@@ -24,6 +26,15 @@ namespace InvoiceServices.InvcManager
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            //Get Configuration
+            services.Configure<DatabaseSettings>(c =>
+             {
+                 c.ConnectionString = Configuration.GetSection("MongoConnection:ConnectionString").Value;
+                 c.DatabaseName = Configuration.GetSection("MongoConnection:Database").Value;
+             });
+            services.AddScoped(cfg => cfg.GetService<IOptions<DatabaseSettings>>().Value);
+
+            services.AddScoped<IRepository, DataSource>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
