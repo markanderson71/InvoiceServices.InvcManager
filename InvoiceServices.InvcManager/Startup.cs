@@ -35,6 +35,7 @@ namespace InvoiceServices.InvcManager
             services.AddScoped(cfg => cfg.GetService<IOptions<DatabaseSettings>>().Value);
 
             services.AddScoped<IRepository, DataSource>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

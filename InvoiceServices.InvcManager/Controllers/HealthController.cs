@@ -56,7 +56,7 @@ namespace InvoiceServices.InvcManager.Controllers
             catch (System.TimeoutException toe)
             {
                 message = "Database TimeOut";
-                logger.LogInformation("Health Check Mongo Database TimeOut", toe);
+                logger.LogCritical("Health Check Mongo Database TimeOut", toe);
             }
 
             return new ResponsePair<string, string> { Dependency = "mongoDB", Value = message };
