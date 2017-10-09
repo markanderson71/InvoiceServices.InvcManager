@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceServices.InvcManager
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceServices.InvcManager.Core.Test", "InvoiceServices.InvcManager.Core.Test\InvoiceServices.InvcManager.Core.Test.csproj", "{8FB23349-026D-48E5-9C7B-FB04BACFD141}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceServices.InvcManager.Service", "InvoiceServices.InvcManager.Service\InvoiceServices.InvcManager.Service.csproj", "{1A859F84-6F2C-4BC4-B6BA-155176115C61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{8FB23349-026D-48E5-9C7B-FB04BACFD141}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FB23349-026D-48E5-9C7B-FB04BACFD141}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FB23349-026D-48E5-9C7B-FB04BACFD141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A859F84-6F2C-4BC4-B6BA-155176115C61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A859F84-6F2C-4BC4-B6BA-155176115C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A859F84-6F2C-4BC4-B6BA-155176115C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A859F84-6F2C-4BC4-B6BA-155176115C61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

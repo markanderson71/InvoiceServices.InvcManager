@@ -10,6 +10,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using InvoiceServices.InvcManager.Data;
 using InvoiceServices.InvcManager.Core;
+using InvoiceServices.InvcManager.Core.Services;
+using InvoiceServices.InvcManager.Service;
+using AutoMapper;
 
 namespace InvoiceServices.InvcManager
 {
@@ -34,7 +37,15 @@ namespace InvoiceServices.InvcManager
              });
             services.AddScoped(cfg => cfg.GetService<IOptions<DatabaseSettings>>().Value);
 
+            //Configure and Add Automapper
+            var config = new AutoMapper.MapperConfiguration(cfg => cfg.AddProfile(new AutoMapperConfigurationProfile()));
+            var mapper = config.CreateMapper();
+            services.AddSingleton<IMapper>(mapper);
+
             services.AddScoped<IRepository, DataSource>();
+            services.AddScoped<IIdGeneratorService, IdGenerationService>();
+            services.AddScoped<IInvoiceDateService, InvoiceDateService>();
+            services.AddScoped<InvoiceFactory, InvoiceFactory>();
             
         }
 

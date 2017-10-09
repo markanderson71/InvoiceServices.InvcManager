@@ -1,7 +1,10 @@
 ﻿using InvoiceServices.InvcManager.Core;
+using Microsoft.Extensions.Logging;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace InvoiceServices.InvcManager.Data
 {
@@ -9,22 +12,24 @@ namespace InvoiceServices.InvcManager.Data
     {
          private MongoClient client;
          private IMongoDatabase database;
+        private readonly ILogger logger;
 
-         //public IMongoCollection<LineItem> InvoiceCollection { get; }
+        public IMongoCollection<Invoice> invoiceCollection { get; }
 
-         public DataSource(DatabaseSettings dbSettings)
+         public DataSource(DatabaseSettings dbSettings,ILogger<DataSource> logger)
          {
 
 
              this.client = new MongoClient(dbSettings.ConnectionString);
              this.database = client.GetDatabase(dbSettings.DatabaseName);
-             //this.InvoiceCollection = database.GetCollection<LineItem>("LineItems");
+             this.invoiceCollection = database.GetCollection<Invoice>("Invoices");
+             this.logger = logger;
 
-           //  if (!BsonClassMap.IsClassMapRegistered(typeof(LineItem)))
-           //  {
-          //       SetSerializationForObjectId();
-          //   }
-         }
+            //  if (!BsonClassMap.IsClassMapRegistered(typeof(LineItem)))
+            //  {
+            //       SetSerializationForObjectId();
+            //   }
+        }
 
          private static void SetSerializationForObjectId()
          {
@@ -32,6 +37,25 @@ namespace InvoiceServices.InvcManager.Data
              //BsonClassMap.RegisterClassMap<LineItem>(cm => { cm.AutoMap(); cm.UnmapMember(m => m.LineItemTotal); });
              // BsonClassMap.RegisterClassMap<Customer>(cm => { cm.AutoMap(); cm.IdMemberMap(new StringSerializer(BsonType.ObjectId)); });
          }
+
+        public async Task<bool> AddInvoice(Invoice newInvoice)
+        {
+            logger.LogInformation("Adding");
+
+            try
+            {
+                await invoiceCollection.InsertOneAsync(newInvoice);
+                await Task.Delay(5000);
+                logger.LogInformation("After Delay");
+            }
+            catch(MongoWriteException wre)
+            {
+                throw new ArgumentOutOfRangeException( ($"InvoiceId value {0} is a duplicate of an existing key: " +  newInvoice.Id), wre);
+            }
+
+            
+            return true;
+        }
 
         public bool IsAvailable()
         {

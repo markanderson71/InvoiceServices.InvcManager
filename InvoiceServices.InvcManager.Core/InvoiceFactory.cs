@@ -20,12 +20,16 @@ namespace InvoiceServices.InvcManager.Core
             this.invoiceDateService = invoiceDateService;
         }
 
+        public string CustomerId { get; set; }
+
         public Invoice CreateInvoice()
         {
             Invoice invoice = new Invoice(GetId(),GetInvoiceDateTime());
             //set the date of the invoice
             return invoice;
         }
+
+        
 
         private string GetId()
         {

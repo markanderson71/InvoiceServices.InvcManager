@@ -6,6 +6,7 @@ namespace InvoiceServices.InvcManager.Core
 {
     public class Invoice
     {
+
         public Invoice(string id, DateTime Date)
         {
             this.Id = id;
@@ -15,6 +16,11 @@ namespace InvoiceServices.InvcManager.Core
         public string Id { get; private set; }
 
         public DateTime Date { get; private set; }
+
+        public string CustomerId { get; set; }
+        
+        public DateTime CreatedOn { get; set; }
+        
 
 
     }
