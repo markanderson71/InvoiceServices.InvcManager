@@ -14,7 +14,9 @@ namespace InvoiceServices.InvcManager
         public AutoMapperConfigurationProfile()
         {
             CreateMap<string, string>().ConvertUsing(new NullStringConverter());
-            CreateMap<InvoicePostModel, Invoice>();
+            CreateMap<Invoice, InvoiceViewModel>();
+            CreateMap<InvoiceViewModel, Invoice>();
+            
         }
 
         public class NullStringConverter : ITypeConverter<string, string>

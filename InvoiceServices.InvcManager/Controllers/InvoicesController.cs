@@ -19,7 +19,7 @@ namespace InvoiceServices.InvcManager.Controllers
     {
         private InvoiceFactory invoicefactory;
         private readonly IRepository repository;
-        private readonly IMapper mapper;
+        private IMapper mapper;
         private readonly ILoggerFactory loggerFactory;
         private ILogger logger;
         private InvoiceManager invoiceManager;
@@ -75,16 +75,15 @@ namespace InvoiceServices.InvcManager.Controllers
             logger.LogInformation("GetInvoice");
 
             Invoice invoice = await invoiceManager.GetInvoice(id);
-            //InvoicePostmapper.Map<Invoice>(invoicePost);
-            // Invoice newInvoice = invoicefactory.CreateInvoice();
 
+            InvoiceViewModel invoiceViewModel = mapper.Map<InvoiceViewModel>(invoice);
 
             //convert the from view model to model
             //Create and invoice 
             //AddInvoice
             //return the id
 
-            return Ok(invoice); 
+            return Ok(invoiceViewModel); 
         }
     }
 }

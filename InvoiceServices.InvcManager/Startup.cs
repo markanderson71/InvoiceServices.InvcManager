@@ -38,7 +38,7 @@ namespace InvoiceServices.InvcManager
             services.AddScoped(cfg => cfg.GetService<IOptions<DatabaseSettings>>().Value);
 
             //Configure and Add Automapper
-            var config = new AutoMapper.MapperConfiguration(cfg => cfg.AddProfile(new AutoMapperConfigurationProfile()));
+            var config = new AutoMapper.MapperConfiguration(cfg => { cfg.AddProfile(new AutoMapperConfigurationProfile()); });
             var mapper = config.CreateMapper();
             services.AddSingleton<IMapper>(mapper);
 
