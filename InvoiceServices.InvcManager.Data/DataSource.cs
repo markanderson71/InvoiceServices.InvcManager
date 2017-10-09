@@ -69,6 +69,14 @@ namespace InvoiceServices.InvcManager.Data
             return true;
         }
 
+        public async Task<Invoice> GetInvoice(string id)
+        {
+            logger.LogInformation("GetInvoice ");
+            Invoice invoice = await invoiceCollection.FindAsync<Invoice>(f => f.Id == id).Result.FirstOrDefaultAsync<Invoice>();
 
+            return invoice;
+
+
+        }
     }
 }

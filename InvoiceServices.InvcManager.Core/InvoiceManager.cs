@@ -35,5 +35,13 @@ namespace InvoiceServices.InvcManager.Core
 
             return true;
         }
+
+
+        public async Task<Invoice> GetInvoice(string id)
+        {
+            logger.LogInformation("GetInvoice");
+            return await repository.GetInvoice(id);
+
+        }
     }
 }

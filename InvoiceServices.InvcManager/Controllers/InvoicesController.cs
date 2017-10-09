@@ -52,7 +52,7 @@ namespace InvoiceServices.InvcManager.Controllers
                 return BadRequest();
             }
             //newInvoice = mapper.Map<Invoice>(invoicePost);
-            logger.LogInformation("Did something else cool");
+            //logger.LogInformation("Did something else cool");
             //convert the from view model to model
             //Create and invoice 
             //AddInvoice
@@ -70,10 +70,12 @@ namespace InvoiceServices.InvcManager.Controllers
 
         [HttpGet("{id}", Name = "GetInvoice")]
         
-        public IActionResult GetInvoice(string id)
+        public async Task<IActionResult> GetInvoice(string id)
         {
             logger.LogInformation("GetInvoice");
 
+            Invoice invoice = await invoiceManager.GetInvoice(id);
+            //InvoicePostmapper.Map<Invoice>(invoicePost);
             // Invoice newInvoice = invoicefactory.CreateInvoice();
 
 
@@ -82,7 +84,7 @@ namespace InvoiceServices.InvcManager.Controllers
             //AddInvoice
             //return the id
 
-            return null; ;
+            return Ok(invoice); 
         }
     }
 }

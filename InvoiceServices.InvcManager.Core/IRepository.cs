@@ -8,5 +8,6 @@ namespace InvoiceServices.InvcManager.Core
     {
         bool IsAvailable();
         Task<bool> AddInvoice(Invoice newInvoice);
+        Task<Invoice> GetInvoice(string id);
     }
 }
