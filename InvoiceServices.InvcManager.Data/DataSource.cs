@@ -5,6 +5,7 @@ using MongoDB.Driver;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using InvoiceServices.InvcManager.Core.Model;
 
 namespace InvoiceServices.InvcManager.Data
 {
@@ -44,6 +45,8 @@ namespace InvoiceServices.InvcManager.Data
 
             try
             {
+                newInvoice.CreatedOn = DateTime.UtcNow;
+
                 await invoiceCollection.InsertOneAsync(newInvoice);
                 await Task.Delay(5000);
                 logger.LogInformation("After Delay");

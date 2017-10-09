@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace InvoiceServices.InvcManager.Core
+namespace InvoiceServices.InvcManager.Core.Model
 {
     public class Invoice
     {
@@ -19,6 +19,8 @@ namespace InvoiceServices.InvcManager.Core
 
         public string CustomerId { get; set; }
         
+        public List<LineItem> LineItem { get; set; }
+
         public DateTime CreatedOn { get; set; }
         
 

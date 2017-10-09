@@ -9,6 +9,7 @@ using InvoiceServices.InvcManager.ViewModel;
 using InvoiceServices.InvcManager.Core.Services;
 using InvoiceServices.InvcManager.Core;
 using AutoMapper;
+using InvoiceServices.InvcManager.Core.Model;
 
 namespace InvoiceServices.InvcManager.Controllers
 {

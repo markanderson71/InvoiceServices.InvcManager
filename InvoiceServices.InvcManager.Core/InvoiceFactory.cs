@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Extensions.Logging;
 using InvoiceServices.InvcManager.Core.Services;
+using InvoiceServices.InvcManager.Core.Model;
 
 namespace InvoiceServices.InvcManager.Core
 {

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using InvoiceServices.InvcManager.Core.Model;
 
 namespace InvoiceServices.InvcManager.Core
 {

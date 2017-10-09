@@ -18,8 +18,8 @@ namespace InvoiceServices.InvcManager.Service
         {
             logger.LogInformation("GetNewId Started");
 
-            // string id = Guid.NewGuid().ToString();
-            string id = new Guid().ToString();
+            string id = Guid.NewGuid().ToString();
+           
             logger.LogDebug($"New id {0} created.");
 
             return id;

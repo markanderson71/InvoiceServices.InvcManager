@@ -1,6 +1,7 @@
 ﻿using System;
 using Xunit;
 using InvoiceServices.InvcManager.Core.Services;
+using InvoiceServices.InvcManager.Core.Model;
 using Moq;
 
 namespace InvoiceServices.InvcManager.Core.Test

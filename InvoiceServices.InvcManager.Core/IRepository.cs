@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using InvoiceServices.InvcManager.Core.Model;
 
 namespace InvoiceServices.InvcManager.Core
 {
